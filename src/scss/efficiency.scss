@@ -1,0 +1,80 @@
+$br: 7px;
+$bb: 1px solid #3d444e;
+$contentColor: #b6b4c6;
+$projectPeriodColor: #C7BFFF;
+$blockBackground: #242b35;
+%fstyle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+%blockWidth {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.efficiency {
+  @extend %blockWidth;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  background-color: $blockBackground;
+  border: $bb;
+  border-radius: $br;
+  padding: 40px;
+  .rectangle {
+    position: absolute;
+    width: 8px;
+    height: 160px;
+    top: 55px;
+    left: 0;
+    background: linear-gradient(
+      350.45deg,
+      #bfbafa 15.3%,
+      #624bff 87.74%,
+      #8f7fff 87.74%,
+      #7f76f7 87.74%
+    );
+    border-radius: 7px 0px 0px 7px;
+    transform: rotate(-180deg);
+  }
+  .efficiency__blocks {
+    @extend %fstyle;
+    display: flex;
+    gap: 40px;
+    .efficiency__total,
+    .efficiency__current-month {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .efficiency__period {
+        color: $projectPeriodColor;
+      }
+      .efficiency__data {
+        display: flex;
+        justify-content: space-between;
+        color: $contentColor;
+        font-weight: bold;
+        border-bottom: $bb;
+        padding-bottom: 7px;
+        .efficiency__title, .efficiency__content, 
+        .efficiency__percent {
+          flex: 1;
+        }
+        .efficiency__content {
+          text-align: center;
+        }
+        .efficiency__percent {
+          text-align: end;
+        }
+      }
+      .no-border {
+        border: none;
+      }
+    }
+  }
+}

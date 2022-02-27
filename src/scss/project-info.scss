@@ -1,0 +1,165 @@
+$contentColor: #b6b4c6;
+$projectPeriodColor: #c7bfff;
+$taskNameColor: #8f7fff;
+$blockBackground: #242b35;
+$scrollColor: #3f4068;
+$nonCompletedColor: #eb5757;
+$completedColor: #27ae60;
+
+$br: 7px;
+$bb: 1px solid #3d444e;
+%fstyle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+%blockWidth {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: $blockBackground;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $scrollColor;
+  border-radius: 20px;
+  border: 3px solid $blockBackground;
+}
+.project-info {
+  @extend %blockWidth;
+  display: flex;
+  gap: 20px;
+}
+.project-information,
+.project-time {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  position: relative;
+  background-color: $blockBackground;
+  padding: 40px;
+  border-radius: $br;
+  border: $bb;
+  height: 606px;
+  overflow: auto;
+  overflow-x: hidden; 
+  scroll-padding: 40px 0 0 40px;
+  @extend %fstyle;
+  .rectangle {
+    position: absolute;
+    width: 8px;
+    height: 320px;
+    top: 142px;
+    left: 0;
+    background: linear-gradient(
+      350.45deg,
+      #bfbafa 15.3%,
+      #624bff 87.74%,
+      #8f7fff 87.74%,
+      #7f76f7 87.74%
+    );
+    border-radius: 7px 0px 0px 7px;
+    transform: rotate(-180deg);
+  }
+  .project-information__data {
+    display: flex;
+    .project-information__title {
+      flex: 1;
+      color: $taskNameColor;
+      font-weight: 600;
+    }
+    .project-information__content {
+      position: relative;
+      flex: 3;
+      color: $contentColor;
+    }
+    .non-completed {
+      color: $nonCompletedColor;
+    }
+    .completed {
+      color: $completedColor;
+    }
+    .dollar-sign {
+      font-size: 25px;
+    }
+    .label {
+      // background: linear-gradient(270deg, #544cba 0%, #7b75cb 100%);
+      // border-radius: 2px;
+      // transform: rotate(-90deg);
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 5px 20px;
+      background: 
+      linear-gradient(135deg, transparent 9px, #7b75cb 0) top left,
+      linear-gradient(45deg, transparent 9px, #7b75cb 0) bottom left;
+      background-repeat: no-repeat;
+      background-size: 100% 50%;
+    }
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid #6f68c6;
+      box-sizing: border-box;
+      border-radius: 15px;
+    }
+  }
+}
+
+.project-time {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  .project-time__content {
+    display: flex;
+    gap: 40px;
+  }
+  .project-time__data {
+    border-bottom: $bb;
+    padding-bottom: 6px;
+  }
+  .project-time__total,
+  .project-time__total-by-month,
+  .project-time__current-month {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    flex: 1;
+    .project-time__items,
+    .project-time__estimations {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      list-style: none;
+      li .project-time__data .project-time__title,
+      li .project-time__data .project-time__content {
+        font-weight: normal;
+      }
+    }
+    .project-time__period {
+      @extend %fstyle;
+      color: $projectPeriodColor;
+      padding-bottom: 7px;
+    }
+    .project-time__data {
+      display: flex;
+      justify-content: space-between;
+      .project-time__title {
+        color: $contentColor;
+        font-weight: bold;
+      }
+      .project-time__content {
+        font-weight: bold;
+        color: $contentColor;
+      }
+    }
+    .sum {
+      border: none;
+    }
+  }
+}

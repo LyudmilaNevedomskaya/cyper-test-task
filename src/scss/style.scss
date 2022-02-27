@@ -1,0 +1,43 @@
+@use 'header';
+@use 'filters';
+@use 'project-info';
+@use 'efficiency';
+@use 'table';
+@use 'footer';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+
+$font-stack: "Open Sans";
+$blockBackground: #242b35;
+$maxWidthContainer: 1320px;
+$headingColor: #FFFFFF;
+$contentColor: #B6B4C6;
+$taskNameColor: #8F7FFF;
+$labelsColor: #C7BFFF;
+$errorColor: #FF6A59;
+$nonCompletedColor: #EB5757;
+$completedColor: #27AE60;
+
+%heading {
+  color: $headingColor;
+  font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+margin-bottom: 24px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #171e28;
+  font-family: $font-stack;
+}
+.heading {
+  @extend %heading;
+  margin-bottom: 7px;
+}
+

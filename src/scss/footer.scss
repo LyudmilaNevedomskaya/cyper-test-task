@@ -1,0 +1,21 @@
+$companyNameColor: #8F7FFF;
+$contentColor: #B6B4C6;
+%fstyle {
+  font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+}
+
+.footer {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @extend %fstyle;
+  color: $contentColor;
+  span {
+    color: $companyNameColor;
+  }
+}

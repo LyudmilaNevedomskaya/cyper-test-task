@@ -1,0 +1,146 @@
+$headingColor: #ffffff;
+$headingBackground: #2d333d;
+$row1background: #242b35;
+$row2background: #1e242f;
+$contentColor: #b6b4c6;
+$taskNameColor: #8f7fff;
+$nonCompletedColor: #eb5757;
+$completedColor: #27ae60;
+$borderColor: #3d444e;
+
+$br: 7px;
+$bb: 1px solid #3d444e;
+
+%blockWidth {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+%fstyle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.summary {
+  @extend %blockWidth;
+  @extend %fstyle;
+  .summary__table-block {
+    position: relative;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+  }
+  .summary__table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    color: $contentColor;
+    table-layout: fixed;
+    width: 100%;
+    thead th {
+      top: 0;
+      position: sticky;
+      z-index: 20;
+      background-color: $headingBackground;
+    }
+    .task-name {
+      color: $taskNameColor;
+    }
+    .completed {
+      color: $completedColor;
+    }
+    .non-completed {
+      color: $nonCompletedColor;
+    }
+    .sum td {
+      background-color: $headingBackground;
+      height: 28px;
+      padding: 0 10px 0 40px;
+    }
+    th,
+    td {
+      padding: 10px 10px 10px 40px;
+    }
+    .summary__heading {
+      color: $headingColor;
+      background-color: $headingBackground;
+      th {
+        text-align: start;
+      }
+      .align-end {
+        text-align: end;
+        padding: 10px 40px 10px 10px;
+      }
+    }
+    .sum td.align-end {
+      padding: 0 40px 0 0;
+    }
+    & .align-end {
+      text-align: end;
+      padding-right: 40px;
+    }
+    .row-light {
+      background-color: $row1background;
+    }
+    .row-dark {
+      background-color: $row2background;
+    }
+    
+  }
+  
+  td:first-child, th:first-child {
+    border-radius: 7px 0 0 7px;
+  }
+  td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+  ::-webkit-scrollbar-track-piece {
+    position: absolute;
+    top: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: $br;
+    position: absolute;
+    top: 20px;
+  }
+}
+
+.table-settings {
+  display: flex;
+  padding: 20px 40px;
+  font-size: 14px;
+  line-height: 21px;
+  color: $contentColor;
+  .table-settings__form {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    .table-settings__select, .num-of-pages {
+      padding: 10px;
+      border-radius: $br;
+      background-color: $row1background;
+      color: $contentColor;
+      border: $bb;
+    }
+    .num-of-pages {
+      .fa-chevron-left, .fa-chevron-right {
+        cursor: pointer;
+      }
+      & span {
+        border-radius: $br;
+        padding: 0 10px;
+        margin-left: 5px;
+      }
+      .selected-page {
+        display: inline-block;
+        background: $taskNameColor;
+        color: $headingColor;
+      }
+      .inactive {
+        color: $borderColor;
+        font-size: 10px;
+      }
+    }
+  }
+}
